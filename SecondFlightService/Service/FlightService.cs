@@ -207,13 +207,12 @@ namespace SecondFlightService.Service
                 if (!flight.IsBooked)
                 {
                     flight.IsBooked = true;
+                    return flight;
                 }
-                else
-                {
-                    return null;
-                }
+                
             }
-            return flight;
+            return null;
+
         }
         public async Task<IEnumerable<Flight>> GetFlights(DateTime? date, SortProperty sortProperty = SortProperty.ByPrice, decimal maxPrice = decimal.MaxValue)
         {
